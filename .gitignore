@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Project data
+logs/
+temp/
+recordings/
+
+# Local binaries and installers
+installers/
+tools/
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Secrets
+.env
+config/secrets.json
+config/*.key
+config/*.pem
