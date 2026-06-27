@@ -20,7 +20,23 @@
 
         <section class="panel">
             <p>This module is ready for implementation.</p>
+
+            {% if launch_target %}
+            <div class="action-row">
+                <button
+                    class="primary-button"
+                    id="launch-button"
+                    data-launch-target="{{ launch_target }}"
+                >
+                    Launch {{ title }}
+                </button>
+            </div>
+
+            <p class="hint" id="launch-status"></p>
+            {% endif %}
         </section>
+
+        <script src="/static/js/launcher.js"></script>
     </main>
 </body>
 </html>

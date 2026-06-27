@@ -2,27 +2,35 @@ from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 from app.services.system_service import get_system_status
 from app.services.device_service import get_dashboard_devices
+from fastapi.responses import RedirectResponse
+
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
 
 
-def module_page(request: Request, title: str, subtitle: str):
+def module_page(request: Request, title: str, subtitle: str, launch_target=None):
     return templates.TemplateResponse(
         request=request,
         name="module.html",
         context={
             "title": title,
             "subtitle": subtitle,
-            "version": "0.2.0"
+            "version": "0.2.0",
+            "launch_target": launch_target
         }
     )
 
 
 @router.get("/xr18")
 async def xr18(request: Request):
-    return module_page(request, "XR18 Mixer", "Mixer control and scene loading.")
-
+    return module_page(
+        request,
+        "XR18 Mixer",
+        "Mixer control and scene loading.",
+        "xr18"
+    )
+    
 
 @router.get("/boss/head-1")
 async def boss_head_1(request: Request):
@@ -35,8 +43,10 @@ async def boss_head_2(request: Request):
 
 
 @router.get("/prompter")
-async def prompter(request: Request):
-    return module_page(request, "Prompter", "Lyrics editor and stage prompter placeholder.")
+async def prompter():
+    return RedirectResponse(
+        url="http://192.168.0.104:5000"
+    )
 
 
 @router.get("/recording")
@@ -63,13 +73,6 @@ async def shutdown(request: Request):
 
 @router.get("/desktop")
 async def desktop(request: Request):
-    return templates.TemplateResponse(
-        request=request,
-        name="desktop.html",
-        context={
-            "title": "NSS Desktop",
-            "subtitle": "Browser-based remote control for the NSS Host.",
-            "version": "0.2.0",
-            "desktop_url": "http://192.168.0.238:6080"
-        }
+    return RedirectResponse(
+        url="http://192.168.0.238:6080/vnc.html?password=53625362&autoconnect=true"
     )
