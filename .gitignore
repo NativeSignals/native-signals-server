@@ -24,3 +24,7 @@ Desktop.ini
 config/secrets.json
 config/*.key
 config/*.pem
+
+# Runtime data
+data/
+backups/
