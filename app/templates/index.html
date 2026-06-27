@@ -2,59 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>Native Signals Server</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
 </head>
 <body>
     <main class="shell">
         <section class="hero">
             <p class="eyebrow">Control Center</p>
+
             <h1>Native Signals Server</h1>
-            <p class="subtitle">Local control platform for Native Signals live rig.</p>
-            <p class="version">Version {{ version }}</p>
+
+            <p class="subtitle">
+                Local control platform for Native Signals live rig.
+            </p>
+
+            <p class="version">
+                Version {{ version }}
+            </p>
         </section>
 
         <section class="grid">
-            <a class="card" href="/xr18">
-                <span class="status online"></span>
-                <h2>XR18 Mixer</h2>
-                <p>Mixer control and scene loading.</p>
-            </a>
+            {% for device in devices %}
+            <a class="card" href="{{ device.url }}">
+                <span class="status {{ device.status }}"></span>
 
-            <a class="card" href="/boss/head-1">
-                <span class="status offline"></span>
-                <h2>Boss Head 1</h2>
-                <p>Guitar head editor launcher.</p>
-            </a>
+                <h2>{{ device.name }}</h2>
 
-            <a class="card" href="/boss/head-2">
-                <span class="status offline"></span>
-                <h2>Boss Head 2</h2>
-                <p>Second guitar head editor launcher.</p>
+                <p>{{ device.description }}</p>
             </a>
-
-            <a class="card" href="/prompter">
-                <span class="status offline"></span>
-                <h2>Prompter</h2>
-                <p>Open lyrics editor and stage prompter.</p>
-            </a>
-
-            <a class="card" href="/recording">
-                <span class="status standby"></span>
-                <h2>Recording</h2>
-                <p>Start, stop and save live recordings.</p>
-            </a>
-
-            <a class="card" href="/devices">
-                <span class="status online"></span>
-                <h2>System Status</h2>
-                <p>Check NSS host and connected devices.</p>
-            </a>
+            {% endfor %}
         </section>
 
         <section class="danger-zone">
-            <a class="danger-button" href="/shutdown">Shutdown System</a>
+            <a class="danger-button" href="/shutdown">
+                Shutdown System
+            </a>
         </section>
     </main>
 </body>
