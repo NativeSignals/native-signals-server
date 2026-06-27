@@ -14,9 +14,9 @@ async def get_status():
     return {
         "nss_host": "online",
         "web_server": "online",
-        "xr18": "online",
+        "xr18": "offline",
         "boss_head_1": "offline",
-        "boss_head_2": "online",
+        "boss_head_2": "offline",
         "prompter": "offline",
         "recording": "standby",
         "desktop": "standby"
