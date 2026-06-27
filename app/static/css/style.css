@@ -164,3 +164,52 @@ h1 {
     color: #777b86;
     font-size: 14px;
 }
+
+.system-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.danger-zone {
+    margin-top: 24px;
+}
+
+.danger-button,
+.system-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 210px;
+    padding: 16px 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 14px;
+}
+
+.danger-button {
+    background: rgba(255, 55, 75, 0.16);
+    border: 1px solid rgba(255, 55, 75, 0.62);
+    box-shadow: 0 0 22px rgba(255, 55, 75, 0.08);
+}
+
+.system-button {
+    color: #9db8ff;
+    background: rgba(45, 116, 255, 0.10);
+    border: 1px solid rgba(122, 162, 255, 0.55);
+    box-shadow: 0 0 22px rgba(45, 116, 255, 0.08);
+}
+
+.danger-button:hover,
+.system-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.button-icon {
+    font-size: 20px;
+    line-height: 1;
+}

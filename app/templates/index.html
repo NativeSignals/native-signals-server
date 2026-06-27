@@ -32,7 +32,10 @@
         <section class="grid">
             {% for device in devices %}
             <a class="card" href="{{ device.url }}">
-                <span class="status {{ device.status }}"></span>
+                <span
+                    class="status {{ device.status }}"
+                    id="status-{{ device.status_id }}"
+                ></span>
 
                 <h2>{{ device.name }}</h2>
 
@@ -53,5 +56,6 @@
             </a>
         </section>
     </main>
+    <script src="/static/js/dashboard.js"></script>
 </body>
 </html>

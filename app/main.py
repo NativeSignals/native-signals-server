@@ -1,3 +1,4 @@
+from app.routes import dashboard, modules, api
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
@@ -16,3 +17,4 @@ app.mount(
 
 app.include_router(dashboard.router)
 app.include_router(modules.router)
+app.include_router(api.router)

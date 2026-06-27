@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status | NSS</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<main class="shell">
+
+    <a class="back-link" href="/">
+        ← Back to Dashboard
+    </a>
+
+    <section class="hero">
+        <p class="eyebrow">Native Signals Server</p>
+        <h1>System Status</h1>
+        <p class="subtitle">
+            Real-time information about the NSS Host.
+        </p>
+    </section>
+
+    <section class="panel">
+
+        <h2>Host Information</h2>
+
+        <p>
+            <strong>CPU Usage:</strong>
+            <span id="cpu">{{ system.cpu }}</span>
+        </p>
+
+        <p>
+            <strong>RAM Usage:</strong>
+            <span id="ram">{{ system.ram }}</span>
+        </p>
+
+        <p>
+            <strong>Disk Usage:</strong>
+            <span id="disk">{{ system.disk }}</span>
+        </p>
+
+        <p>
+            <strong>IP Address:</strong>
+            <span id="ip">{{ system.ip }}</span>
+        </p>
+
+        <p>
+            <strong>Uptime:</strong>
+            <span id="uptime">{{ system.uptime }}</span>
+        </p>
+
+        <p>
+            <strong>CPU Temperature:</strong>
+            <span id="temperature">---</span>
+        </p>
+
+    </section>
+    
+    <script src="/static/js/system_status.js"></script>
+    <section class="panel" style="margin-top:20px;">
+
+        <h2>Devices</h2>
+
+        {% for device in devices %}
+            <p>
+                {{ device.name }}
+                —
+                {{ device.status }}
+            </p>
+        {% endfor %}
+
+    </section>
+
+</main>
+
+</body>
+</html>
