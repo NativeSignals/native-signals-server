@@ -35,5 +35,11 @@ def get_dashboard_devices():
             "status": "online",
             "url": "/devices",
             "description": "Check NSS host and connected devices."
+        },
+        {
+            "name": "NSS Desktop",
+            "status": "standby",
+            "url": "/desktop",
+            "description": "Open browser-based remote control for the NSS Host."
         }
     ]

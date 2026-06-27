@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>NSS Desktop | NSS</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+<body>
+    <main class="shell">
+        <a class="back-link" href="/">← Back to Dashboard</a>
+
+        <section class="hero">
+            <p class="eyebrow">Native Signals Server</p>
+
+            <h1>{{ title }}</h1>
+
+            <p class="subtitle">
+                {{ subtitle }}
+            </p>
+
+            <p class="version">
+                Version {{ version }}
+            </p>
+        </section>
+
+        <section class="panel">
+            <h2>Remote Desktop Bridge</h2>
+
+            <p>
+                This page will open the NSS Host desktop in the browser.
+                For now it points to the planned noVNC endpoint.
+            </p>
+
+            <div class="action-row">
+                <a
+                    class="primary-button"
+                    href="{{ desktop_url }}"
+                    target="_blank"
+                >
+                    Open NSS Desktop
+                </a>
+            </div>
+
+            <p class="hint">
+                Expected endpoint: {{ desktop_url }}
+            </p>
+        </section>
+    </main>
+</body>
+</html>

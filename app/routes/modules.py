@@ -50,3 +50,16 @@ async def devices(request: Request):
 @router.get("/shutdown")
 async def shutdown(request: Request):
     return module_page(request, "Shutdown System", "Protected shutdown placeholder.")
+
+@router.get("/desktop")
+async def desktop(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="desktop.html",
+        context={
+            "title": "NSS Desktop",
+            "subtitle": "Browser-based remote control for the NSS Host.",
+            "version": "0.2.0",
+            "desktop_url": "http://192.168.0.238:6080"
+        }
+    )
